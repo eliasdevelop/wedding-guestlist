@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<title>Wedding GuestList</title>	
+
+<!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="styles/kendo.mobile.flat.min.css"/>
+    <link rel="stylesheet" type="text/css" href="styles/fontello.css"/>
+<!-- /CSS -->   
+
+<body>
+	<!-- DELE -->
+	<div data-role="view" data-layout="overview-layout" id="dele">
+        <header data-role="header">
+            <div data-role="navbar">
+                <span data-role="view-title"><span id="quantDele">0</span> Convidado(s) do Noivo</span>
+            </div>
+        </header>
+        <!-- CONTEUDO -->
+            <ul data-role="listview" data-style="inset" data-type="group">
+                <li>
+                    Padrinhos/Madrinhas do Noivo
+                    <ul id="padrinhosDele">
+                         <!-- DINAMICO -->
+                    </ul>
+                </li>
+                <li>
+                    Convidados do Noivo
+                    <ul id="convidadosDele">
+                        <!-- DINAMICO -->
+                    </ul>
+                </li>
+            </ul>   
+        <!-- /CONTEUDO -->
+        <footer data-role="footer">
+            <div data-role="tabstrip">
+                <a data-icon="user-male" href="#dele">Dele</a>
+                <a data-icon="user-female" href="#dela">Dela</a>
+                <a data-icon="users" href="#ambos">Ambos</a>
+                <a data-icon="menu" href="#mais" data-transition="slide:left">Menu</a>
+            </div>
+        </footer>
+    </div>
+	<!-- /DELE -->
+
+	<!-- DELA -->
+	<div data-role="view" data-layout="overview-layout" id="dela">
+		<header data-role="header">
+            <div data-role="navbar">
+                <span data-role="view-title"><span id="quantDela">0</span> Convidado(s) da Noiva</span>
+            </div>
+        </header>
+        <!-- CONTEUDO -->
+            <ul data-role="listview" data-style="inset" data-type="group">
+                <li>
+                    Padrinhos/Madrinhas da Noiva
+                    <ul id="padrinhosDela">
+                         <!-- DINAMICO -->
+                    </ul>
+                </li>
+                <li>
+                    Convidados da Noiva
+                    <ul id="convidadosDela">
+                        <!-- DINAMICO -->
+                    </ul>
+                </li>
+            </ul>   
+        <!-- /CONTEUDO -->
+		<footer data-role="footer">
+            <div data-role="tabstrip">
+                <a data-icon="user-male" href="#dele">Dele</a>
+                <a data-icon="user-female" href="#dela">Dela</a>
+                <a data-icon="users" href="#ambos">Ambos</a>
+                <a data-icon="menu" href="#mais" data-transition="slide:left">Menu</a>
+            </div>
+        </footer>
+	</div>
+	<!-- DELA -->
+
+	<!-- AMBOS -->
+	<div data-role="view" data-layout="overview-layout" id="ambos">
+		<header data-role="header">
+            <div data-role="navbar">
+                <span data-role="view-title"><span id="quantTotal">0</span> Convidado(s) no Total</span>
+            </div>
+        </header>
+        <!-- CONTEUDO -->
+		    <ul data-role="listview" data-style="inset" data-type="group">
+                <li>
+                    Padrinhos/Madrinhas do Noivo
+                    <ul id="padrinhosDeleAmbos">
+                         <!-- DINAMICO -->
+                    </ul>
+                </li>
+                <li>
+                    Padrinhos/Madrinhas da Noiva
+                    <ul id="padrinhosDelaAmbos">
+                         <!-- DINAMICO -->
+                    </ul>
+                </li>
+                <li>
+                    Convidados do Casamento
+                    <ul id="convidadosAmbos">
+                         <!-- DINAMICO -->
+                    </ul>
+                </li>
+            </ul>   
+        <!-- /CONTEUDO -->
+		<footer data-role="footer">
+            <div data-role="tabstrip">
+                <a data-icon="user-male" href="#dele">Dele</a>
+                <a data-icon="user-female" href="#dela">Dela</a>
+                <a data-icon="users" href="#ambos">Ambos</a>
+                <a data-icon="menu" href="#mais" data-transition="slide:left">Menu</a>
+            </div>
+        </footer>
+	</div>
+	<!-- AMBOS -->
+
+    <!-- MAIS OPÇÔES -->
+    <div data-role="view" data-layout="overview-layout" data-title="Mais Opções" id="mais">
+        <header data-role="header">
+            <div data-role="navbar">
+                <a data-role="backbutton" data-align="left" >Voltar</a>
+                <span data-role="view-title"></span>
+            </div>
+        </header>
+        <!-- CONTEUDO -->
+        <ul data-role="listview" data-style="inset" data-click="maisOpcoesClick">
+            <li data-icon="plus"><a href="#addEdit" id="add" data-transition="slide:down">Add Convidado</a></li>
+            <li data-icon="mail"><a id="enviarEmail">Enviar via E-mail</a></li>
+            <li data-icon="config"><a href="#config" id="config" data-transition="slide:down">Configurações</a></li>
+            <li data-icon="info"><a href="sobre" id="sobre" data-transition="slide:down">Sobre</a></li>
+        </ul>
+        <!-- /CONTEUDO -->
+        <footer data-role="footer">
+        </footer>
+    </div>                  
+    <!-- MAIS OPÇÕES -->
+
+    <!-- DETALHES -->
+    <div data-role="view" data-layout="overview-layout" data-title="Detalhes" id="detalhes">
+        <header data-role="header">
+            <div data-role="navbar">
+                <a data-role="backbutton" data-align="left" >Voltar</a>
+                <span data-role="view-title"></span>
+            </div>
+        </header>
+        <!-- CONTEUDO -->
+        <ul data-role="listview" data-style="inset" data-click="detalhesClick" id="editDelete" name="">
+            <li data-icon="edit"><a id="edit">Editar Convidado</a></li>
+            <li data-icon="trash"><a id="delete">Excluir Convidado</a></li>
+        </ul>
+        <!-- /CONTEUDO -->
+        <footer data-role="footer">
+        </footer>
+    </div>                  
+    <!-- DETALHES -->
+
+	<!-- ADD/EDIT CONVIDADO -->
+	<div data-role="view" data-layout="overview-layout" id="addEdit">
+		<header data-role="header">
+            <div data-role="navbar">
+                <a data-role="backbutton" data-click="limparFormulario" data-align="left" >Cancelar</a>
+                <span id="tituloForm" data-role="view-title">Add Convidado</span>
+                <a data-role="button" data-click="addOuEdit" data-align="right" name="add">Salvar</a>
+            </div>
+        </header>
+        <!-- CONTEUDO -->
+        <form>  
+            <h5 id="msgErroValida" style="display:none">Campo Nome é obrigatório!</h5> 
+            <h5 id="msgAddSucesso" style="display:none">Convidado Adicionado com sucesso!</h5> 
+            <h5 id="msgEditSucesso" style="display:none">Convidado Editado com sucesso!</h5> 
+            <ul data-role="listview" data-style="inset">
+                <li>
+                    <label for="slcConvidadoDe">Convidado: </label>
+                     <select id="slcConvidadoDe">
+                        <option value="dele">Dele</option>
+                        <option value="dela">Dela</option>
+                    </select>
+                </li>
+                <li>
+                    <label for="slcTipoConvidado">Padrinho/Madrinha?</label>
+                     <select id="slcTipoConvidado">
+                        <option value="padrinho">Sim</option>
+                        <option value="convidado">Não</option>
+                    </select>
+                </li>
+                <li>
+                    <label for="txtNome">Nome:</label>
+                    <input id="txtNome" name="" type="text"/>     
+                </li>
+                <li>
+                    <label for="txtEmail">Email:</label>
+                    <input id="txtEmail" type="email"/>
+                </li>
+                <li>
+                    <label for="txtTelefone">Telefone:</label>
+                    <input id="txtTelefone" type="tel"/> 
+                </li>
+                <li>
+                    <label for="txtEndereco">Endereço:</label>
+                    <input id="txtEndereco" type="text"/>       
+                </li>
+                <li>
+                    <label for="txtCidade">Cidade:</label>
+                    <input id="txtCidade" type="text"/>
+                </li>
+                <li>
+                    <label for="txtCep">CEP:</label>
+                    <input id="txtCep" type="number"/>    
+                </li>
+            </ul>
+        </form>    
+        <!-- /CONTEUDO -->
+		<footer data-role="footer">
+        </footer>
+	</div>
+	<!-- ADD/EDIT CONVIDADO -->
+
+    <!-- CONFIGURACOES -->
+    <div data-role="view" data-layout="overview-layout" data-title="Configurações" id="config">
+        <header data-role="header">
+            <div data-role="navbar">
+                <a data-role="backbutton" data-click="verificarTipoListagem" data-align="left" >Voltar</a>
+                <span data-role="view-title"></span>
+                <a data-role="button" data-click="listarPor" data-align="right" name="add">Salvar</a>
+            </div>
+        </header>
+        <!-- CONTEUDO -->
+        <h5 id="msgAlteradoSucesso" style="display:none">Alterações feitas com sucesso!</h5>
+        <ul data-role="listview" data-style="inset">
+            <li>
+                <label for="slcListarPor">Listar por: </label>
+                 <select id="slcListarPor">
+                    <option value="alfabetica">Ordem Alfabetica</option>
+                    <option value="insercao">Ordem de Inserção</option>
+                </select>
+            </li>
+        </ul>    
+        <!-- /CONTEUDO -->
+        <footer data-role="footer">
+        </footer>
+    </div>                  
+    <!-- CONFIGURACOES -->
+
+    <!-- ABOUT -->
+    <div data-role="view" data-layout="overview-layout" data-title="Sobre" id="sobre">
+        <header data-role="header">
+            <div data-role="navbar">
+                <a data-role="backbutton" data-align="left" >Voltar</a>
+                <span data-role="view-title"></span>
+            </div>
+        </header>
+        <!-- CONTEUDO -->
+        <div align="center" style="padding-top:40px">
+            <h2 style="color:rgb(16,196,178)">Wedding Guestlist</h2>
+            <h4 style="color:rgb(16,196,178)">Develop/Design - @eliasdevelop<h4>   
+            <h4 style="color:rgb(16,196,178)">Copyright © >pushIdeas </h4>
+        </div>  
+        <!-- /CONTEUDO -->
+        <footer data-role="footer">
+        </footer>
+    </div>                  
+    <!-- ABOUT -->
+
+	<!-- JS -->
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/kendo.mobile.min.js"></script>
+    <script type="text/javascript" src="js/database.js"></script>
+    <script type="text/javascript" src="js/js.js"></script>
+    <!-- /JS -->
+
+    <!-- LOAD KENDOUI -->
+	<script>
+    var app = new kendo.mobile.Application($(document.body),{
+         //skin: "flat"
+     });
+	</script>
+	<!-- /LOAD KENDOUI -->
+
+</body>
+</html>

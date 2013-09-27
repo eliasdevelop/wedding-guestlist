@@ -1,0 +1,36 @@
+@font-face {
+  font-family: 'fontello';
+  src: url('../font/fontello.woff') format('woff'),
+       url('../font/fontello.ttf') format('truetype');
+}
+
+.km-icon:after,
+.km-icon:before
+{
+    font: 1em/1em "fontello";
+}
+
+.km-plus:after,
+.km-plus:before { content: '\e80c'; } /* '' */
+.km-mail:after,
+.km-mail:before { content: '\e804'; } /* '' */
+.km-edit:after,
+.km-edit:before { content: '\e806'; } /* '' */
+.km-config:after,
+.km-config:before { content: '\e809'; } /* '' */
+.km-menu:after,
+.km-menu:before { content: '\e80b'; } /* '' */
+.km-user:after,
+.km-user:before { content: '\e800'; } /* '' */
+.km-user-male:after,
+.km-user-male:before { content: '\e801'; } /* '' */
+.km-user-female:after,
+.km-user-female:before { content: '\e802'; } /* '' */
+.km-users:after,
+.km-users:before { content: '\e803'; } /* '' */
+.km-trash:after,
+.km-trash:before { content: '\e808'; } /* '' */
+.km-info:after,
+.km-info:before { content: '\e807'; } /* '' */
+.km-user-special:after,
+.km-user-special:before { content: '\e80a'; } /* '' */
